@@ -8,7 +8,6 @@ def painel():
     st.title("Painel Logística")
     st.write("Bem-vindo ao painel de logística!")
 
-# Adicione aqui o conteúdo do painel de logística
 
 # Chamando a função de painel se o usuário estiver logado
 # if "usuario" in st.session_state and st.session_state["usuario"]:
@@ -120,12 +119,11 @@ col1.metric("🚛 Pedidos Totais", len(df_filtrado), delta_color="inverse")
 col2.metric("⏳ Pedidos Atrasados", df_filtrado["Atraso"].sum(), delta_color="inverse")
 col3.metric("📉 Estoque Baixo", (df_filtrado["Estoque Atual"] < df_filtrado["Estoque Mínimo"]).sum(), delta_color="inverse")
 
-# Adicionando estilo para letras em branco e negrito
 st.markdown(
     """
     <style>
     .stMetric label {
-        color: Grey;
+        color: black;
         font-weight: bold;
     }
     </style>
@@ -260,7 +258,7 @@ fig_tempo.update_layout(
         'x': 0.0,  # Alinha o título à esquerda
         'xanchor': 'left',
         'yanchor': 'top',
-        'font': dict(size=12, color='grey', family="Arial", weight='bold'),
+        'font': dict(size=12, color='black', family="Arial", weight='bold'),
     }
 )
 
@@ -269,7 +267,7 @@ fig_tempo.update_layout(
     xaxis_title="Tempo de Entrega (dias)",
     yaxis_title="Frequência (Entregas)",
     xaxis=dict(tickmode="linear", tick0=0, dtick=1, tickangle=45),
-    font=dict(size=10, family="Arial", color="grey",weight="bold"),
+    font=dict(size=10, family="Arial", color="black",weight="bold"),
     title_font=dict(size=10, family="Arial", color="black", weight="bold"),
     paper_bgcolor="rgba(0,0,0,0)",  # Remove o fundo geral
     plot_bgcolor="rgba(0,0,0,0)",   # Remove o fundo do gráfico 
