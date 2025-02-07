@@ -55,7 +55,6 @@ st.markdown(
             text-align: center;
         }
 
-
         /* Rodapé */
         footer {
             background: linear-gradient(to top, #A9A9A9, #808080);
@@ -114,22 +113,20 @@ st.title("📦 Painel de Análise Logística")
 st.markdown("<hr style='border: 3px solid #00FF00; margin: 20px 0;'>",
             unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns(3)
-col1.metric("🚛 Pedidos Totais", len(df_filtrado), delta_color="inverse")
-col2.metric("⏳ Pedidos Atrasados", df_filtrado["Atraso"].sum(), delta_color="inverse")
-col3.metric("📉 Estoque Baixo", (df_filtrado["Estoque Atual"] < df_filtrado["Estoque Mínimo"]).sum(), delta_color="inverse")
 
-st.markdown(
-    """
-    <style>
-    .stMetric label {
-        color: black;
-        font-weight: bold;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# KPIs
+pedidos_totais = len(df_filtrado)
+pedidos_atrasados = df_filtrado["Atraso"].sum()
+estoque_baixo = (df_filtrado["Estoque Atual"] < df_filtrado["Estoque Mínimo"]).sum()
+
+# Criar colunas
+col1, col2, col3 = st.columns(3)
+
+# Exibir KPIs com negrito
+col1.markdown(f"🚛 **Pedidos Totais**  \n<span style='color:black; font-weight:bold; font-size:20px'>{pedidos_totais}</span>", unsafe_allow_html=True)
+col2.markdown(f"⏳ **Pedidos Atrasados**  \n<span style='color:black; font-weight:bold; font-size:20px'>{pedidos_atrasados}</span>", unsafe_allow_html=True)
+col3.markdown(f"📉 **Estoque Baixo**  \n<span style='color:black; font-weight:bold; font-size:20px'>{estoque_baixo}</span>", unsafe_allow_html=True)
+
 
 # Linha Divisória
 st.markdown("<hr style='border: 3px solid #00FF00; margin: 20px 0;'>",
