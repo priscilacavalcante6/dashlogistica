@@ -38,7 +38,7 @@ st.markdown(
     <style>
         /* Fundo geral em cinza mais claro */
         body, .stApp {
-            background: linear-gradient(to bottom, #F5F5F5, #E8E8E8, #DCDCDC);
+            background: linear-gradient(to bottom, #E0E0E0, #A9A9A9);
             color: black;
         }
         
