@@ -50,7 +50,7 @@ st.markdown(
         /* Cabeçalho - Cinza escuro sólido */
         header, [data-testid="stHeader"] {
             background-color: #3A3A3A !important;
-            color: white;  /* Mantém o texto branco para contraste */
+            color: black;
             padding: 10px;
             text-align: center;
         }
